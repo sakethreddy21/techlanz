@@ -19,6 +19,8 @@ export default function Home() {
       spanText: "$",
       showRange: false,
       value: iceDetails.vehiclePrice,
+      placeholder: "Enter vehicle price",
+      alert: "Vehicle price cannot be negative",
       onChange: (value: any) => setIceDetails({ ...iceDetails, vehiclePrice: value }),
     },
     {
@@ -26,6 +28,8 @@ export default function Home() {
       spanText: "$",
       showRange: false,
       value: iceDetails.maintenanceCost,
+      placeholder: "Enter maintenance costs",
+      alert: "Maintenance costs cannot be negative",
       onChange: (value: any) => setIceDetails({ ...iceDetails, maintenanceCost: value }),
     },
     {
@@ -33,6 +37,8 @@ export default function Home() {
       spanText: "$",
       showRange: false,
       value: iceDetails.insuranceCost,
+      placeholder: "Enter insurance costs",
+      alert: "Insurance costs cannot be negative",
       onChange: (value: any) => setIceDetails({ ...iceDetails, insuranceCost: value }),
     },
     {
@@ -40,6 +46,8 @@ export default function Home() {
       spanText: "%",
       showRange: false,
       value: iceDetails.resaleValue,
+      placeholder: "Enter resale percentage",
+      alert: "Resale percentage must be between 0 and 100",
       onChange: (value: any) => setIceDetails({ ...iceDetails, resaleValue: value }),
     },
     {
@@ -47,6 +55,8 @@ export default function Home() {
       spanText: "Year",
       showRange: false,
       value: iceDetails.yearOfQwnerShip,
+      placeholder: "Enter years of ownership",
+      alert: "Year of ownership cannot be negative",
       onChange: (value: any) => setIceDetails({ ...iceDetails, yearOfQwnerShip: value }),
     },
     {
@@ -54,6 +64,8 @@ export default function Home() {
       spanText: "KM",
       showRange: true,
       value: iceDetails.vehicleMileage,
+      placeholder: "Enter vehicle mileage",
+      alert: "Vehicle mileage cannot be negative",
       onChange: (value: any) => setIceDetails({ ...iceDetails, vehicleMileage: value }),
     },
     {
@@ -61,15 +73,20 @@ export default function Home() {
       spanText: "$",
       showRange: true,
       value: iceDetails.fuelCost,
+      placeholder: "Enter fuel cost",
+      alert: "Fuel cost cannot be negative",
       onChange: (value: any) => setIceDetails({ ...iceDetails, fuelCost: value }),
     },
   ];
+  
   const evInputFields = [
     {
       label: "EV Price",
       spanText: "$",
       showRange: false,
       value: evDetails.vehiclePrice,
+      placeholder: "Enter EV price",
+      alert: "EV price cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, vehiclePrice: value }),
     },
     {
@@ -77,6 +94,8 @@ export default function Home() {
       spanText: "$",
       showRange: false,
       value: evDetails.maintenanceCost,
+      placeholder: "Enter maintenance costs",
+      alert: "Maintenance costs cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, maintenanceCost: value }),
     },
     {
@@ -84,6 +103,8 @@ export default function Home() {
       spanText: "$",
       showRange: false,
       value: evDetails.insuranceCost,
+      placeholder: "Enter insurance costs",
+      alert: "Insurance costs cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, insuranceCost: value }),
     },
     {
@@ -91,6 +112,8 @@ export default function Home() {
       spanText: "%",
       showRange: false,
       value: evDetails.resaleValue,
+      placeholder: "Enter resale percentage",
+      alert: "Resale percentage must be between 0 and 100",
       onChange: (value: any) => setEvDetails({ ...evDetails, resaleValue: value }),
     },
     {
@@ -98,24 +121,32 @@ export default function Home() {
       spanText: "Year",
       showRange: false,
       value: evDetails.yearOfQwnerShip,
+      placeholder: "Enter years of ownership",
+      alert: "Year of ownership cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, yearOfQwnerShip: value }),
     },
     {
       label: "True Range",
       spanText: "KM",
       value: evDetails.trueRange,
+      placeholder: "Enter true range",
+      alert: "True range cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, trueRange: value }),
     },
     {
       label: "Battery Capacity",
       spanText: "kWh",
       value: evDetails.batteryCapacity,
+      placeholder: "Enter battery capacity",
+      alert: "Battery capacity cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, batteryCapacity: value }),
     },
     {
       label: "Charging Cost",
       spanText: "$",
       value: evDetails.chargingCost,
+      placeholder: "Enter charging cost",
+      alert: "Charging cost cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, chargingCost: value }),
     },
     {
@@ -123,6 +154,8 @@ export default function Home() {
       spanText: "$",
       showRange: false,
       value: evDetails.batteryReplacementCost,
+      placeholder: "Enter battery replacement cost",
+      alert: "Battery replacement cost cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, batteryReplacementCost: value }),
     },
     {
@@ -130,15 +163,20 @@ export default function Home() {
       spanText: "Years",
       showRange: true,
       value: evDetails.batteryReplacementInterval,
+      placeholder: "Enter battery replacement interval",
+      alert: "Battery replacement interval cannot be negative",
       onChange: (value: any) => setEvDetails({ ...evDetails, batteryReplacementInterval: value }),
     },
   ];
+  
   const customerUsageFields = [
     {
       label: "Monthly KM",
       spanText: "KM",
       showRange: true,
       value: customerUsage.monthlyKM,
+      placeholder: "Enter monthly KM",
+      alert: "Monthly KM cannot be negative",
       onChange: (value: any) => setCustomerUsage({ ...customerUsage, monthlyKM: value }),
     },
     {
@@ -146,9 +184,13 @@ export default function Home() {
       spanText: "Years",
       showRange: true,
       value: customerUsage.calculationDuration,
+      placeholder: "Enter calculation duration",
+      alert: "Calculation duration cannot be negative",
       onChange: (value: any) => setCustomerUsage({ ...customerUsage, calculationDuration: value }),
     },
   ];
+  
+  
   const { totalCostIce,totalCostEv,icePieChartData,evPieChartData,lineChartData,submitted,loading,error,handleSubmit, } = useTCOCalculator();
   const handleReset = () => {
     setEvDetails(intialEVDetails);

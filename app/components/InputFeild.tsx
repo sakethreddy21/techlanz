@@ -1,7 +1,18 @@
 
-const InputField = ({ label, spanText, showRange, value, setValue }: any) => {
+import { useState } from "react";
+const InputField = ({ label, spanText, showRange, value, setValue, placeholder, alert }: any) => {
+  const [error, setError] = useState<string | null>(null); 
+
   const handleInputChange = (e: any) => {
-    setValue(Number(e.target.value)); // Update the parent state
+    const newValue = Number(e.target.value);
+
+
+    if (newValue < 0) {
+      setError(alert); 
+    } else {
+      setError(null); 
+      setValue(newValue); 
+    }
   };
 
   return (
@@ -15,6 +26,7 @@ const InputField = ({ label, spanText, showRange, value, setValue }: any) => {
             type="number"
             value={value}
             onChange={handleInputChange}
+            placeholder={placeholder} // Add placeholder
             className="p-2 w-full bg-[#F5F7FA] rounded-xl text-left focus:outline-none"
           />
           <span className="bg-teal-500 rounded-r-lg text-white p-2 font-bold">
@@ -32,8 +44,10 @@ const InputField = ({ label, spanText, showRange, value, setValue }: any) => {
           className="bg-[#F5F7FA] rounded-xl text-left focus:outline-none"
         />
       )}
+      {/* Display alert message if there's an error */}
+      {error && <div className="text-red-600">{error}</div>} {/* Alert for negative values */}
     </div>
   );
 };
 
-export default InputField;
+export default InputField
